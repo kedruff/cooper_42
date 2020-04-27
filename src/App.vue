@@ -1,7 +1,9 @@
-<template>
+ <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <img alt="42" src="./assets/jackiejersey.jpg" width="200px" />
+    <div class="content-card">
+      <HelloWorld msg="A tribute to Jackie Robinson #42" />
+    </div>
   </div>
 </template>
 
@@ -24,5 +26,18 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-image: url('./assets/Robinson-Jackie-3102-93_Bat_CSU.jpg');
+  background-position: -25rem 0;
+  background-repeat: no-repeat;
+}
+
+.content-card {
+  border: 1px solid dodgerblue;
+  background: dodgerblue;
+  opacity: 90%;
+  padding: 0.5rem;
+  width: 37.5rem;
+  margin: 0 auto;
+  color: rgb(50, 450, 255);
 }
 </style>
