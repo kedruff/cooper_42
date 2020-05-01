@@ -1,8 +1,6 @@
-
 <template>
-  <h3>{{ text }} </h3>
+  <h3>{{ text }}</h3>
 </template>
-
 
 <script>
 export default {
@@ -10,13 +8,13 @@ export default {
   props: {
     text: String
   }
-}
+};
 </script>
 
 <style scoped>
-  h3 { 
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: dodgerblue;
-  }
+h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: dodgerblue;
+}
 </style>

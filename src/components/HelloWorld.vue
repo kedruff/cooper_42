@@ -1,95 +1,98 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
+    <p>
+      Hi, this a project for my school for quarintine.
+    </p>
+    <h3>Game controls.</h3>
+    <ol>
+      <li>click a tile</li>
       <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel"
-          target="_blank"
-          rel="noopener"
-          >babel</a
-        >
+        After you click(or tap) a question and multiple answers for the
+        question.
       </li>
       <li>
-        <a
-          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
-          target="_blank"
-          rel="noopener"
-          >eslint</a
-        >
+        Lastly, click or tap the back arrow in the bottom left togo back to the
+        question tiles.
       </li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li>
-        <a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a>
-      </li>
-      <li>
-        <a href="https://forum.vuejs.org" target="_blank" rel="noopener"
-          >Forum</a
-        >
-      </li>
-      <li>
-        <a href="https://chat.vuejs.org" target="_blank" rel="noopener"
-          >Community Chat</a
-        >
-      </li>
-      <li>
-        <a href="https://twitter.com/vuejs" target="_blank" rel="noopener"
-          >Twitter</a
-        >
-      </li>
-      <li>
-        <a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a>
-      </li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li>
-        <a href="https://router.vuejs.org" target="_blank" rel="noopener"
-          >vue-router</a
-        >
-      </li>
-      <li>
-        <a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/vue-devtools#vue-devtools"
-          target="_blank"
-          rel="noopener"
-          >vue-devtools</a
-        >
-      </li>
-      <li>
-        <a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener"
-          >vue-loader</a
-        >
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-          rel="noopener"
-          >awesome-vue</a
-        >
-      </li>
-    </ul>
+    </ol>
+    <div class="gameBoard">
+      <question-entry
+        :entry="item"
+        v-for="item in questions"
+        :key="item.index"
+      ></question-entry>
+    </div>
   </div>
 </template>
 
 <script>
+import QuestionEntryVue from "./QuestionEntry.vue";
+const entries = [
+  {
+    label: `age`,
+    question: "How old am I?",
+    choices: ["9", "39", "38", "3"],
+    answer: 0
+  },
+  {
+    label: `number`,
+    question: "What is Jackie's number?",
+    choices: ["44", "24", "3", "42"],
+    answer: 3
+  },
+  {
+    label: `mlbTeam`,
+    question: "For which Major League Baseball team(s) did Jackie play?",
+    choices: [
+      "New York Giants",
+      "Brooklyn Dodgers",
+      "New York Yankees",
+      "New York Mets"
+    ],
+    answer: 1
+  },
+  {
+    label: `negroLeagueTeam`,
+    question: "For which negro league team(s) did Jackie play?",
+    choices: [
+      "Homestead Grays",
+      "Chicago American Giants",
+      "Kansas City Monarchs",
+      "Pittsburgh Crawfords"
+    ],
+    answer: 2
+  }
+];
+
 export default {
   name: "HelloWorld",
+  components: {
+    "question-entry": QuestionEntryVue
+  },
   props: {
     msg: String
+  },
+  data: function() {
+    return { questions: entries };
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.gameBoard {
+  margin: 2.5rem auto 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+  border: 2px solid white;
+  background: rgba(255 255 255 25%);
+  padding: 0.5rem 2rem;
+}
+
 h3 {
   margin: 40px 0 0;
 }
@@ -102,6 +105,6 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #bd0a04
+  color: #bd0a04;
 }
 </style>

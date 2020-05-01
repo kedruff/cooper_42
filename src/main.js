@@ -9,20 +9,21 @@ const routes = [
   {
     path: `/question/:id`,
     name: `questionDetail`,
-    component: QuestionDetails,
-  },
+    component: QuestionDetails
+  }
 ];
 
 const router = new VueRouter({
   mode: "history",
-  routes,
+  routes
 });
 
 Vue.config.productionTip = false;
 
+Vue.use(VueRouter);
 new Vue({
   el: `#app`,
   router,
   components: { App },
-  render: (h) => h(App),
+  render: h => h(App)
 }).$mount("#app");
